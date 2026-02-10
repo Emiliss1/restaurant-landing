@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
 import { ScrollAnimation } from "./ScrollAnimation";
 
 export default function Reservation() {
   const [restaurantIndex, setRestaurantIndex] = useState(null);
+  const [rect, setRect] = useState(null);
 
   const restaurants = [
     {
@@ -36,8 +37,11 @@ export default function Reservation() {
     },
   ];
 
+  const ref = useRef();
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    setRect(ref.current.getBoundingClientRect().top);
   }, []);
 
   return (
@@ -61,7 +65,10 @@ export default function Reservation() {
 
       <main>
         <ScrollAnimation type="top">
-          <section className="w-11/12 xl:w-[1200px] text-zinc-100 pb-8 relative   h-max my-30 bg-zinc-900 mx-auto">
+          <section
+            ref={ref}
+            className="w-11/12 xl:w-[1200px] text-zinc-100 pb-8 relative   h-max my-30 bg-zinc-900 mx-auto"
+          >
             <div
               className={`${typeof restaurantIndex === "number" ? "opacity-0 invisible absolute w-full" : "opacity-100 visible"}  duration-500 mt-8 transition-all `}
             >
@@ -77,7 +84,14 @@ export default function Reservation() {
                   restaurants.map((restaurant, index) => (
                     <div
                       key={index}
-                      onClick={() => setRestaurantIndex(index)}
+                      onClick={() => {
+                        setRestaurantIndex(index);
+                        window.scrollTo({
+                          top: rect - 70,
+                          left: 0,
+                          behavior: "smooth",
+                        });
+                      }}
                       style={{ backgroundImage: `url(${restaurant.image})` }}
                       className={`w-11/12 sm:w-82 h-64 cursor-pointer hover:border-b-8  border-[#ffb273] transition-all delay-100 duration-300  bg-cover items-center  justify-end flex flex-col`}
                     >
@@ -119,7 +133,14 @@ export default function Reservation() {
               </div>
               <div className="flex justify-center sm:justify-start">
                 <button
-                  onClick={() => setRestaurantIndex(null)}
+                  onClick={() => {
+                    setRestaurantIndex(null);
+                    window.scrollTo({
+                      top: rect - 70,
+                      left: 0,
+                      behavior: "smooth",
+                    });
+                  }}
                   className="py-1 w-5/6 sm:w-32  sm:ml-8 mt-12 bg-zinc-100 text-zinc-950 text-lg cursor-pointer hover:bg-zinc-200"
                 >
                   Back
