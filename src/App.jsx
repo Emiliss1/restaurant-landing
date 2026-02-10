@@ -5,7 +5,7 @@ import About from "./components/About";
 import Menu from "./components/Menu";
 import Locations from "./components/Locations";
 import News from "./components/News";
-import Reservation from "./components/reservation";
+import Reservation from "./components/Reservation";
 
 function App() {
   return (
