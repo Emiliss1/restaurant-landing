@@ -116,7 +116,7 @@ export default function Main() {
     <div>
       <header
         ref={ref}
-        className={`min-h-[900px] h-screen overflow-hidden z-100 flex flex-col justify-between  w-full  bg-zinc-800 bg-blend-soft-light bg-[url(assets/background.webp)] bg-cover`}
+        className={`min-h-[900px] h-screen overflow-hidden z-100 flex flex-col justify-between  w-full  bg-zinc-800 bg-blend-soft-light bg-[url(./assets/background.webp)] bg-cover`}
       >
         <Navbar />
         <div className="flex flex-col  w-full px-8 sm:w-3/6 mx-auto ">
