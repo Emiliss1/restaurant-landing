@@ -3,6 +3,7 @@ import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
 import { useEffect, useState } from "react";
 import { NewsErr } from "./NewsErr";
+import { ScrollAnimation } from "./ScrollAnimation";
 
 export default function News() {
   const [newsData, setNewsData] = useState(null);
@@ -69,7 +70,7 @@ export default function News() {
         <NewsErr />
       ) : (
         <div>
-          <section
+          <header
             className={`h-100  overflow-hidden flex flex-col   w-full  bg-zinc-900 bg-blend-soft-light bg-[url(assets/background.webp)] bg-cover`}
           >
             <Navbar />
@@ -78,14 +79,19 @@ export default function News() {
                 {newsData?.title}
               </h1>
             </div>
-          </section>
-          <section className="w-11/12 xl:w-[1200px] text-zinc-100 h-max pb-8 bg-zinc-900 mx-auto my-30 ">
-            <div
-              style={{ backgroundImage: `url(${newsData?.banner})` }}
-              className={`w-full h-72  bg-cover`}
-            ></div>
-            <p className="px-8 md:px-20 break-all mt-8">{newsData?.desc}</p>
-          </section>
+          </header>
+
+          <main>
+            <ScrollAnimation type="top">
+              <section className="w-11/12 xl:w-[1200px] text-zinc-100 h-max pb-8 bg-zinc-900 mx-auto my-30 ">
+                <div
+                  style={{ backgroundImage: `url(${newsData?.banner})` }}
+                  className={`w-full h-72  bg-cover`}
+                ></div>
+                <p className="px-8 md:px-20 break-all mt-8">{newsData?.desc}</p>
+              </section>
+            </ScrollAnimation>
+          </main>
         </div>
       )}
 

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
+import { ScrollAnimation } from "./ScrollAnimation";
 
 export default function Locations() {
   useEffect(() => {
@@ -8,7 +9,7 @@ export default function Locations() {
   }, []);
   return (
     <div>
-      <section
+      <header
         className={`h-120  overflow-hidden flex flex-col   w-full  bg-zinc-900 bg-blend-soft-light bg-[url(assets/background.webp)] bg-cover`}
       >
         <Navbar active="locations" />
@@ -23,50 +24,54 @@ export default function Locations() {
             neque.
           </p>
         </div>
-      </section>
+      </header>
 
-      <section className="w-11/12 xl:w-[1200px] text-zinc-100 py-8 flex flex-col items-center h-max my-30 bg-zinc-900 mx-auto">
-        <div className="w-11/12 border-b-2 border-[#ffb273] py-4">
-          <h1 className="text-4xl break-all  text-center">Restaurant 1</h1>
-          <h2 className="text-3xl text-center">City</h2>
-          <div className="mt-8 flex flex-col gap-y-6 md:gap-y-0 md:flex-row items-center justify-between">
-            <div className="flex-col flex gap-4">
-              <p className="text-2xl">Address street 48</p>
-              <p className="text-xl">
-                Contacts:{" "}
-                <span className="text-[#ffb273] ml-2">I-VI 10-22</span>
-              </p>
-              <p className="text-[#ffb273] text-xl">+123 213 2465</p>
-              <p className="text-[#ffb273] text-xl">Email@email.com</p>
+      <main>
+        <ScrollAnimation type="top">
+          <section className="w-11/12 xl:w-[1200px] text-zinc-100 py-8 flex flex-col items-center h-max my-30 bg-zinc-900 mx-auto">
+            <div className="w-11/12 border-b-2 border-[#ffb273] py-4">
+              <h1 className="text-4xl break-all  text-center">Restaurant 1</h1>
+              <h2 className="text-3xl text-center">City</h2>
+              <div className="mt-8 flex flex-col gap-y-6 md:gap-y-0 md:flex-row items-center justify-between">
+                <div className="flex-col flex gap-4">
+                  <p className="text-2xl">Address street 48</p>
+                  <p className="text-xl">
+                    Contacts:{" "}
+                    <span className="text-[#ffb273] ml-2">I-VI 10-22</span>
+                  </p>
+                  <p className="text-[#ffb273] text-xl">+123 213 2465</p>
+                  <p className="text-[#ffb273] text-xl">Email@email.com</p>
+                </div>
+                <img
+                  className="w-98  object-cover"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRODt5tSsMIMFzaVP9v3v0DSGnaSF3RlZf9ow&s"
+                  alt="restaurant"
+                />
+              </div>
             </div>
-            <img
-              className="w-98  object-cover"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRODt5tSsMIMFzaVP9v3v0DSGnaSF3RlZf9ow&s"
-              alt="restaurant"
-            />
-          </div>
-        </div>
-        <div className="w-11/12 border-b-2 border-[#ffb273] py-4">
-          <h1 className="text-4xl break-all  text-center">Restaurant 2</h1>
-          <h2 className="text-3xl text-center">City</h2>
-          <div className="mt-8 flex flex-col gap-y-6 md:gap-y-0 md:flex-row items-center justify-between">
-            <div className="flex-col flex gap-4">
-              <p className="text-2xl">Address street 48</p>
-              <p className="text-xl">
-                Contacts:{" "}
-                <span className="text-[#ffb273] ml-2">I-VI 10-22</span>
-              </p>
-              <p className="text-[#ffb273] text-xl">+123 213 2465</p>
-              <p className="text-[#ffb273] text-xl">Email@email.com</p>
+            <div className="w-11/12 border-b-2 border-[#ffb273] py-4">
+              <h1 className="text-4xl break-all  text-center">Restaurant 2</h1>
+              <h2 className="text-3xl text-center">City</h2>
+              <div className="mt-8 flex flex-col gap-y-6 md:gap-y-0 md:flex-row items-center justify-between">
+                <div className="flex-col flex gap-4">
+                  <p className="text-2xl">Address street 48</p>
+                  <p className="text-xl">
+                    Contacts:{" "}
+                    <span className="text-[#ffb273] ml-2">I-VI 10-22</span>
+                  </p>
+                  <p className="text-[#ffb273] text-xl">+123 213 2465</p>
+                  <p className="text-[#ffb273] text-xl">Email@email.com</p>
+                </div>
+                <img
+                  className="w-98  object-cover"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRODt5tSsMIMFzaVP9v3v0DSGnaSF3RlZf9ow&s"
+                  alt="restaurant"
+                />
+              </div>
             </div>
-            <img
-              className="w-98  object-cover"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRODt5tSsMIMFzaVP9v3v0DSGnaSF3RlZf9ow&s"
-              alt="restaurant"
-            />
-          </div>
-        </div>
-      </section>
+          </section>
+        </ScrollAnimation>
+      </main>
 
       <Footer />
     </div>
