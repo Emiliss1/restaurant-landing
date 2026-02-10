@@ -4,7 +4,10 @@ export function ScrollAnimation({ children, type }) {
   const ref = useRef();
   const [visible, setVisible] = useState(false);
 
-  console.log(type);
+  const variants = {
+    top: visible ? "translate-y-0" : "translate-y-12",
+    side: visible ? "translate-x-0" : "translate-x-12",
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -25,8 +28,8 @@ export function ScrollAnimation({ children, type }) {
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 ease-out
-        ${visible ? `opacity-100 translate-${type === "top" ? "y" : type === "side" ? "x" : ""}-0` : `opacity-0 translate-${type === "top" ? "y" : type === "side" ? "x" : ""}-12`}`}
+      className={`transition-all duration-700 ease-out opacity-0
+        ${visible && `opacity-100`} ${variants[type]}`}
     >
       {children}
     </div>
